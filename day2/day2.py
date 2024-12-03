@@ -18,9 +18,7 @@ class Solution:
             values = list(map(int, item.split()))
 
             diffs = np.diff(values)
-            print(values)
             if (all(i < j for i, j in zip(values, values[1:])) or all(i > j for i, j in zip(values, values[1:]))) and np.abs(diffs).max()<4:
-                print('Safe')
                 n_safe = n_safe+1
         return n_safe
 
@@ -56,10 +54,6 @@ class Solution:
         increasing =(all(i < j for i, j in zip(values, values[1:])))
         decreasing =(all(i > j for i, j in zip(values, values[1:])))
         return increasing, decreasing
-
-    def unique(self,sequence):
-        seen = set()
-        return [x for x in sequence if not (x in seen or seen.add(x))]
 
 
 if __name__=='__main__':
