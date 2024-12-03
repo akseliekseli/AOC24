@@ -10,14 +10,14 @@ class Solution:
     def __init__(self, test=False):
         self.file = open(self.input_filename_test,'r').read() if test else open(self.input_filename,'r').read()
         self.lines = self.file.splitlines()
-        
+
 
     def first(self):
         n_safe = 0
         for item in self.lines:
             values = list(map(int, item.split()))
 
-            diffs = np.diff(values) 
+            diffs = np.diff(values)
             print(values)
             if (all(i < j for i, j in zip(values, values[1:])) or all(i > j for i, j in zip(values, values[1:]))) and np.abs(diffs).max()<4:
                 print('Safe')
@@ -71,7 +71,7 @@ class Solution:
                 if (increasing or decreasing) and np.abs(diffs).max()<4:
                     print('Safe')
                     n_safe = n_safe+1
-                    
+
 
             '''
             sorted_list = np.sort(values)
@@ -89,26 +89,26 @@ class Solution:
                 if bad_levels == 1:
                     if bad_levels_idx == 0:
                         print(f'idx_1: {[i for i, x in enumerate((values!=sorted_list)) if x]}')
-                        values.pop([i for i, x in enumerate((values!=sorted_list)) if x][0])               
+                        values.pop([i for i, x in enumerate((values!=sorted_list)) if x][0])
                         print(values)
                     elif bad_levels_idx == 1:
                         print(f'idx_2 {values}')
-                        values.pop([i for i, x in enumerate((values!=sorted_desc)) if x][0])               
+                        values.pop([i for i, x in enumerate((values!=sorted_desc)) if x][0])
                 elif same_levels==1:
                     print(same_levels)
-                    values = list(self.unique(values))  
+                    values = list(self.unique(values))
                 print(f'Values removed: {values}')
-                
+
                 sorted_list = np.sort(values)
                 sorted_desc = sorted_list[::-1]
                 sorted_diff = np.diff(sorted_list)
-                
+
                 if ((values == sorted_list).all() or (values == sorted_desc).all()) and (np.abs(sorted_diff)<4).all() and (sorted_diff != 0).all():
                     print('Safe')
                     n_safe = n_safe +1
         '''
         return n_safe
-    
+
     def check_increasing(self, values):
         increasing =(all(i < j for i, j in zip(values, values[1:])))
         decreasing =(all(i > j for i, j in zip(values, values[1:])))
@@ -118,9 +118,9 @@ class Solution:
         seen = set()
         return [x for x in sequence if not (x in seen or seen.add(x))]
 
-        
+
 if __name__=='__main__':
-    
+
     parser = argparse.ArgumentParser()
     parser.add_argument('test', help="True/False")
     parser.add_argument('case', help="task 1: 1, task 2: 2")

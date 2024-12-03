@@ -14,33 +14,36 @@ class Solution:
 
 
     def first(self):
-        result = 0
+        left = []
+        right = []
         for line in self.lines:
-            x = re.findall(r"mul\(([0-9]+,[0-9]+)\)", line)
-            for item in x:
-                items = item.split(",")
-                result = result + int(items[0])*int(items[1])
-
-        return result
+            line = line.split('   ')
+            left.append(int(line[0]))
+            right.append(int(line[1]))
+        left.sort()
+        left = np.array(left)
+        right.sort()
+        right = np.array(right)
+        distance = np.abs(left-right)
+        return np.sum(distance)
 
     def second(self):
-        result = 0
-        do = True
+        left = []
+        right = []
         for line in self.lines:
-            # Aika purkka regex, antaa [mul(2,4), '2,4'] tai ['do()/don't(), '']
-            # Toimii kuitenki
-            x = re.findall(r"(mul\(([0-9]+,[0-9]+)\)|do\(\)|don't\(\))", line)
-            for item in x:
-                items = list(item)
-                if items[0] == "don't()":
-                    do = False
-                elif items[0] == "do()":
-                    do = True
-                if do:
-                    numbers = items[1].split(',')
-                    if len(numbers)==2:
-                        result = result + int(numbers[0])*int(numbers[1])
-        return result
+            line = line.split('   ')
+            left.append(int(line[0]))
+            right.append(int(line[1]))
+        left.sort()
+        left = np.array(left)
+        right.sort()
+        right = np.array(right)
+
+        similarities = np.zeros(left.shape)
+        for ii, val in enumerate(left):
+            similarities[ii] = val*(right == val).sum()
+        return int(np.sum(similarities))
+
 
 
 if __name__=='__main__':
