@@ -12,7 +12,6 @@ class Solution:
         self.file = open(self.input_filename_test,'r').read() if test else open(self.input_filename,'r').read()
         self.lines = self.file.splitlines()
 
-
     def first(self):
         self.char_location_mapping = {key: [] for key in ['X', 'M', 'A', 'S']}
        # Parse the input into dict with coordinates for each letter
@@ -29,7 +28,6 @@ class Solution:
             We loop through each X, find the Ms next to it and in which direction it is.
             Then we check if there are A and S if we continue same direction.
             '''
-
             next_positions, directions = self.find_m_positions(x)
             for ii, dir in enumerate(directions):
                 pos = self.create_next_positions(next_positions[ii], dir)
@@ -58,7 +56,6 @@ class Solution:
             if (len(m_pos)==2) and (len(s_pos)==2) and (m_pos!=[0, 1]) and (s_pos!=[0, 1]):
                 n_xmas = n_xmas + 1
         return n_xmas
-
 
     def find_letters(self, letter, input_line, idx):
         # Finding coordinates of spesific letter
@@ -91,6 +88,7 @@ class Solution:
         if dir != None:
             positions = positions[dir]
         return positions
+
 
 if __name__=='__main__':
 
