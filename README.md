@@ -5,6 +5,6 @@ Run the solutions with command:
 ```
 python3 day1.py false 1
 ```
-Where the arguments are:
-Example input: true/false 
+Where the arguments are: \
+Example input: true/false \
 Task:        1/2
