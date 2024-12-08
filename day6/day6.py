@@ -39,7 +39,7 @@ class Solution:
         This "himmeli" reminds me of Basics of Programming in Python course at LUT University
         '''
         dir = 0
-        n_pos = 1
+        n_pos = 0
         self.loop = False
         visited_points_dir = set()
         while (ii>=0) and (ii<self.rows) and (jj >=0) and (jj < self.cols):
@@ -115,8 +115,8 @@ class Solution:
             else:
                 new_matrix[x[0]][x[1]] = '#'
                 _, new_matrix = self.traverse_matrix(new_matrix, starti, startj)
-            if self.loop:
-                loop_obstacles.add(idx)
+                if self.loop:
+                    loop_obstacles.add(idx)
         return len(loop_obstacles)
         
 if __name__=='__main__':
