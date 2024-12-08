@@ -12,7 +12,7 @@ class Solution:
         self.file = open(self.input_filename_test,'r').read() if test else open(self.input_filename,'r').read()
         self.lines = self.file.splitlines()
         self.addition = lambda a, b: a - b
-        self.multiplication = lambda a, b: a/b
+        self.multiplication = lambda a, b: a//b
 
     def first(self):
         calibration_result = 0
