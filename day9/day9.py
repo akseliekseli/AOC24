@@ -29,7 +29,7 @@ class Solution:
         while ii < len(output):
             if output[ii] == '.':
                 output[ii] =output[-1]
-                output = output[:-1]
+                output.pop(-1)
             else:
                 ii += 1
         assert '.' not in output
