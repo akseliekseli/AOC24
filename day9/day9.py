@@ -48,7 +48,11 @@ class Solution:
                 next_number += 1
             else:
                 output.extend(int(num)* ['.'])       
-
+        '''
+        Create tuples for dot and number sequences
+        dot: (start_idx, length)
+        number: (start_idx, length, value)
+        '''
         dots = self.find_dots_sequences(output)
         numbers = self.find_number_sequences(output)
         len_output = len(output) 
