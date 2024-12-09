@@ -106,29 +106,6 @@ class Solution:
         return sequences
 
 
-    def calculate_number_of_items_in_row(self, lst):
-        last_number = lst[-1]
-        count = 0
-        for item in lst[::-1]:
-            if item == last_number:
-                count += 1
-            else:
-                break
-        return count
-
-    def calculate_number_of_dots(self, lst):
-        count = 0
-        for item in lst:
-            if item == '.':
-                count += 1
-            else:
-                break
-        return count
-
-
-
-
-
 if __name__=='__main__':
 
     parser = argparse.ArgumentParser()
