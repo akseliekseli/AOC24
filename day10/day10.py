@@ -35,7 +35,6 @@ class Solution:
         for zero in zero_map:
             for ii in range(1, 10):
                 zero = self.check_next(zero, ii)
-            print(zero)
             # Zero to set so I get only the coordinates of 9s
             trailheads += len(set(zero))
 
@@ -91,7 +90,6 @@ class Solution:
         for zero in zero_map:
             for ii in range(1, 10):
                 zero = self.check_next(zero, ii)
-            print(zero)
             # Just didn't change zero to set, so I got all the trails
             trailheads += len(zero)
 
