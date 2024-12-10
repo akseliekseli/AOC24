@@ -4,6 +4,7 @@ import re
 import numpy as np
 import copy
 from collections import defaultdict
+import time
 
 class Solution:
     input_filename = 'input.txt'
