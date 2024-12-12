@@ -49,7 +49,7 @@ class Solution:
                 else:
                     stones_new[stone*2024] = ii
             stones = stones_new
-            print(f'blink {jj+1}: {stones}')
+            #print(f'blink {jj+1}: {stones}')
         return sum(stones.values())
     
     def second(self):
