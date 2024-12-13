@@ -6,6 +6,7 @@ import copy
 from collections import defaultdict
 import time
 
+
 class Solution:
     input_filename = 'input.txt'
     input_filename_test = 'example.txt'
@@ -15,10 +16,10 @@ class Solution:
         self.lines = self.file.splitlines()
 
 
-    def first(self):
+    def silver(self):
         pass
 
-    def second(self):
+    def gold(self):
         pass
 
 
@@ -32,7 +33,7 @@ if __name__=='__main__':
 
     start = time.time()
     solution = Solution(test=test)
-    results = solution.first() if case == 1 else solution.second()
+    results = solution.silver() if case == 1 else solution.gold()
     end = time.time()
     print(f'Results part {case}: {results}')
     print(f'Runtime: {end-start}')
