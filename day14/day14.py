@@ -9,6 +9,12 @@ import matplotlib.pyplot as plt
 
 '''
 Used modular arithmetic for the cell wrapping.
+
+For the second part I used time to inspect the images.
+After the star I read an interesting approach from reddit.
+
+Learned that try to utilize the first part in the second part, if the second
+part feels random.
 '''
 class Solution:
     input_filename = 'input.txt'
@@ -49,6 +55,24 @@ class Solution:
             result = result*val
         return result
     
+    '''
+     This was mentioned in a Reddit post: https://www.reddit.com/r/adventofcode/comments/1he0g67/2024_day_14_part_2_the_clue_was_in_part_1/
+     
+    I had to try this out and it works. 
+    '''
+    def gold_alternative(self):
+        seconds = 10000
+        results = defaultdict(int)
+        self.robot_init = copy.deepcopy(self.robots)
+        for sec in range(0, seconds):
+            self.robots = copy.deepcopy(self.robot_init)
+            self.calculate_robot_positions(seconds=sec)
+            result = 1
+            for val in self.quadrand_sums:
+                result = result*val
+            results[sec] = result
+        return min(results, key=results.get)
+    
     def gold(self):
         seconds = 6400
         ii = 0
@@ -83,7 +107,7 @@ if __name__=='__main__':
 
     start = time.time()
     solution = Solution(test=test)
-    results = solution.silver() if case == 1 else solution.gold()
+    results = solution.silver() if case == 1 else solution.gold_alternative()
     end = time.time()
     print(f'Results part {case}: {results}')
     print(f'Runtime: {end-start}')
