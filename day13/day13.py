@@ -6,8 +6,9 @@ import copy
 from collections import defaultdict
 import time
 
+
 '''
-Matrix calculus <3
+Matrix stuff <3
 
 Had a bug because int(coeffs[1]) transforms for example 86.9999 to 86 instead of 87.
 I knew this, but was just dumb not to think about it earlier :DDD
