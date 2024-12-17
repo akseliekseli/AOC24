@@ -85,6 +85,7 @@ class Solution:
     def check_bounds(self, point):
         (x, y) = point
         if 0 <= x < self.rows and 0 <= y < self.cols: return True
+        else: return False
     
     def check_next(self, points, key):
         '''
