@@ -6,6 +6,9 @@ import copy
 from collections import defaultdict
 import time
 
+'''
+Pen and paper + lots of prints and trial and error to get on track
+'''
 
 class Solution:
     input_filename = 'input.txt'
@@ -119,10 +122,10 @@ class Solution:
          
     def recursion_find_a(self, A, idx):
         output = self.input_loop(A)
-        if idx == 0:
-            self.A_list.append(A)
         if output != self.program[idx]:
             return 
+        if idx == 0:
+            self.A_list.append(A)
         else:
             for a_next in range(0, 8):
                 self.recursion_find_a(A*8 + a_next, idx-1)
